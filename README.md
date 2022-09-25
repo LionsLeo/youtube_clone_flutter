@@ -1,6 +1,6 @@
 # youtube_clone
 
-A new Flutter project.
+This is a clone app of youtube made using flutter
 
 ## Getting Started
 
