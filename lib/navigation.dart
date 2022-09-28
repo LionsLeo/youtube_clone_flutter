@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:youtube_clone/constants/color_constants.dart';
 import 'package:youtube_clone/pages/create_page.dart';
 import 'package:youtube_clone/pages/home_page.dart';
 import 'package:youtube_clone/pages/library_page.dart';
 import 'package:youtube_clone/pages/shorts_page.dart';
 import 'package:youtube_clone/pages/subs_page.dart';
-import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -19,11 +16,11 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   List pages = [
-    HomePage(),
-    ShortsPage(),
-    CreatePage(),
-    SubsPage(),
-    LibraryPage()
+    const HomePage(),
+    const ShortsPage(),
+    const CreatePage(),
+    const SubsPage(),
+    const LibraryPage()
   ];
   int _currentindex = 0;
   void onTapPage(int index) {
@@ -57,7 +54,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
               label: 'Create', icon: Icon(LineIcons.values['plus'])),
           BottomNavigationBarItem(
               label: 'Subscriptions', icon: Icon(LineIcons.byName('video'))),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
               label: 'Library', icon: Icon(Icons.video_collection_outlined)),
         ],
       ),

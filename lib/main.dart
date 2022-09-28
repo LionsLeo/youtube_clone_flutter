@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_clone/navigation.dart';
 import 'package:youtube_clone/pages/splash_screen.dart';
 
 void main() {

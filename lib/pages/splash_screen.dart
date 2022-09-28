@@ -1,8 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/constants/color_constants.dart';
 import 'package:youtube_clone/navigation.dart';
@@ -17,12 +14,13 @@ class SplashScreenNew extends StatefulWidget {
 class _SplashScreenNewState extends State<SplashScreenNew> {
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     Timer(
-        Duration(seconds: 2),
+        const Duration(seconds: 2),
         () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => BottomNavigation())));
+            MaterialPageRoute(builder: (context) => const BottomNavigation())));
   }
 
   @override
@@ -32,7 +30,7 @@ class _SplashScreenNewState extends State<SplashScreenNew> {
       body: Center(
           child: Container(
         width: MediaQuery.of(context).size.width * 0.5,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(image: AssetImage('assets/yt_logo.png'))),
       )),
     );
