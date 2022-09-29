@@ -7,7 +7,7 @@ This is a clone app of youtube made using flutter
 This project containes a detailed clone version of youtube app based on
 September 2022 UI of Youtube.
 
-### To Do
+### Status of Project
 
 - [x] Home Page
 - [x] Shorts Page
