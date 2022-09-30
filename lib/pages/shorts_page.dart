@@ -155,8 +155,11 @@ class _ShortsPageState extends State<ShortsPage> {
                                     children: [
                                       Icon(
                                         Icons.thumb_up,
-                                        size: 30,
+                                        size: 25,
                                         color: ytWhite,
+                                      ),
+                                      SizedBox(
+                                        height: 8,
                                       ),
                                       Text(
                                         shorts[index].likes,
@@ -165,12 +168,15 @@ class _ShortsPageState extends State<ShortsPage> {
                                             fontWeight: FontWeight.w600),
                                       ),
                                       SizedBox(
-                                        height: 18,
+                                        height: 22,
                                       ),
                                       Icon(
                                         Icons.thumb_down,
-                                        size: 30,
+                                        size: 25,
                                         color: ytWhite,
+                                      ),
+                                      SizedBox(
+                                        height: 8,
                                       ),
                                       Text(
                                         shorts[index].dislikes,
@@ -181,14 +187,17 @@ class _ShortsPageState extends State<ShortsPage> {
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 18,
+                                    height: 22,
                                   ),
                                   Column(
                                     children: [
                                       Icon(
                                         Icons.comment,
-                                        size: 30,
+                                        size: 25,
                                         color: ytWhite,
+                                      ),
+                                      SizedBox(
+                                        height: 8,
                                       ),
                                       Text(
                                         shorts[index].comment_count,
@@ -199,12 +208,15 @@ class _ShortsPageState extends State<ShortsPage> {
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 18,
+                                    height: 22,
                                   ),
                                   Icon(
                                     Icons.share,
-                                    size: 30,
+                                    size: 25,
                                     color: ytWhite,
+                                  ),
+                                  SizedBox(
+                                    height: 8,
                                   ),
                                   Text(
                                     'Share',
@@ -216,7 +228,7 @@ class _ShortsPageState extends State<ShortsPage> {
                                 ],
                               ),
                               SizedBox(
-                                height: 18,
+                                height: 5,
                               ),
                               Column(
                                 children: [
@@ -228,11 +240,11 @@ class _ShortsPageState extends State<ShortsPage> {
                                 ],
                               ),
                               SizedBox(
-                                height: 18,
+                                height: 15,
                               ),
                               Container(
-                                width: 45,
-                                height: 45,
+                                width: 40,
+                                height: 40,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(8),
                                     image: DecorationImage(
@@ -248,7 +260,7 @@ class _ShortsPageState extends State<ShortsPage> {
           Align(
             alignment: Alignment.topRight,
             child: Padding(
-              padding: const EdgeInsets.only(top: 35, right: 15),
+              padding: const EdgeInsets.only(top: 40, right: 15),
               child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 Icon(
                   Icons.search,

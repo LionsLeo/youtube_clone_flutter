@@ -11,7 +11,7 @@ September 2022 UI of Youtube.
 
 - [x] Home Page
 - [x] Shorts Page
-- [ ] Create Page
+- [x] Create Page
 - [ ] Subscription Page
 - [ ] Library Page
 - [ ] Search Ui
