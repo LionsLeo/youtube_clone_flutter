@@ -12,9 +12,9 @@ Copy the following codes in your terminal and press enter.
 
 - `git clone https://github.com/LionsLeo/youtube_clone_flutter.git`
 
-flutter pub get
+- `flutter pub get`
 
-flutter run
+- `flutter run`
 
 
 ### Status of Project
