@@ -15,19 +15,13 @@ class _ShortsPageState extends State<ShortsPage> {
   PageController controller = PageController(initialPage: 0);
   late FlickManager flickManager;
   late VideoPlayerController _controller;
-  late bool _isLoading;
+  late bool videoState = false; //true:pause  false:play
 
   @override
   void initState() {
     // TODO: implement initState
-    _isLoading = true;
-    Future.delayed(const Duration(seconds: 2), () {
-      setState(() {
-        _isLoading = false;
-      });
-    });
-    _controller = VideoPlayerController.asset(shorts[0].video_url);
 
+    _controller = VideoPlayerController.asset(shorts[0].video_url);
     _controller.addListener(() {
       setState(() {});
     });
@@ -67,10 +61,21 @@ class _ShortsPageState extends State<ShortsPage> {
               itemBuilder: (context, index) {
                 return Container(
                   child: Stack(children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      child: VideoPlayer(_controller),
+                    GestureDetector(
+                      onTap: () {
+                        if (videoState) {
+                          _controller.play();
+                          videoState = false;
+                        } else {
+                          _controller.pause();
+                          videoState = true;
+                        }
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height,
+                        child: VideoPlayer(_controller),
+                      ),
                     ),
                     Align(
                       alignment: Alignment.bottomCenter,
@@ -267,7 +272,8 @@ class _ShortsPageState extends State<ShortsPage> {
                               ),
                             ]),
                       ),
-                    )
+                    ),
+                    videoState ? PauseButton() : PlayButton()
                   ]),
                 );
               }),
@@ -294,6 +300,46 @@ class _ShortsPageState extends State<ShortsPage> {
           ),
         ]),
       ),
+    );
+  }
+}
+
+class PauseButton extends StatelessWidget {
+  const PauseButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.center,
+      child: Container(
+        width: 80,
+        height: 80,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          color: Colors.black.withOpacity(0.5),
+        ),
+        child: Icon(
+          Icons.pause,
+          color: ytWhite,
+          size: 30,
+        ),
+      ),
+    );
+  }
+}
+
+class PlayButton extends StatelessWidget {
+  const PlayButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.center,
+      child: Container(),
     );
   }
 }
