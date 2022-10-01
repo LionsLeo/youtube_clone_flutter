@@ -29,5 +29,9 @@ flutter run
 - [x] Shimmer Loading
 - [ ] Search Ui
 
+### Download the APK
+
+You can find the apk <a src="build\app\outputs\flutter-apk\app-release.apk">here</a>
+
 
 
