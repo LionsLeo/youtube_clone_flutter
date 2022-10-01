@@ -2,6 +2,8 @@
 
 This is a clone app of youtube made using flutter
 
+<img src='mockup.png'>
+
 ## Description
 
 This project containes a detailed clone version of youtube app based on
@@ -35,5 +37,5 @@ flutter run
 - [x] Shimmer Loading
 - [ ] Search Ui
 
-<img src='mockup.png'>
+
 
