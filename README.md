@@ -35,3 +35,5 @@ flutter run
 - [x] Shimmer Loading
 - [ ] Search Ui
 
+<img src='mockup.png'>
+
