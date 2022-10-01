@@ -15,10 +15,17 @@ class _ShortsPageState extends State<ShortsPage> {
   PageController controller = PageController(initialPage: 0);
   late FlickManager flickManager;
   late VideoPlayerController _controller;
+  late bool _isLoading;
 
   @override
   void initState() {
     // TODO: implement initState
+    _isLoading = true;
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        _isLoading = false;
+      });
+    });
     _controller = VideoPlayerController.asset(shorts[0].video_url);
 
     _controller.addListener(() {
@@ -67,9 +74,16 @@ class _ShortsPageState extends State<ShortsPage> {
                     ),
                     Align(
                       alignment: Alignment.bottomCenter,
-                      child: VideoProgressIndicator(
-                        _controller,
-                        allowScrubbing: true,
+                      child: Container(
+                        height: 6,
+                        child: VideoProgressIndicator(
+                          _controller,
+                          allowScrubbing: true,
+                          colors: VideoProgressColors(
+                              playedColor: ytWhite,
+                              bufferedColor: Colors.white.withOpacity(0),
+                              backgroundColor: Colors.white.withOpacity(0)),
+                        ),
                       ),
                     ),
                     Align(

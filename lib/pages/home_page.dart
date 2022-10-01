@@ -15,6 +15,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late bool _isLoading;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _isLoading = true;
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        _isLoading = false;
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,157 +99,154 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.only(left: 15, bottom: 5),
           child: SizedBox(
             height: 45,
-            child: ListView(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0, bottom: 8),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(3),
-                      color: ytHighlightColor,
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10, right: 10),
-                      child: Row(
-                        children: [
-                          Icon(
-                            LineIcons.byName('compass'),
-                            color: ytWhite,
-                          ),
-                          SizedBox(
-                            width: 5,
-                          ),
-                          Text('Explore',
-                              style: TextStyle(
-                                  color: ytWhite,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400)),
-                        ],
-                      ),
-                    ),
+            child: _isLoading ? ShimmerRecommendTile() : RecommendTileHome(),
+          ),
+        ),
+        _isLoading ? ShimmerGenerate() : VideosGenerate(),
+      ]),
+    );
+  }
+}
+
+class RecommendTileHome extends StatelessWidget {
+  const RecommendTileHome({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      physics: const BouncingScrollPhysics(),
+      scrollDirection: Axis.horizontal,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(top: 8.0, bottom: 8),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(3),
+              color: ytHighlightColor,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: Row(
+                children: [
+                  Icon(
+                    LineIcons.byName('compass'),
+                    color: ytWhite,
                   ),
-                ),
-                SizedBox(width: 5),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8, bottom: 8),
-                  child: VerticalDivider(
-                    color: ytHighlightColor,
-                    thickness: 2,
+                  SizedBox(
+                    width: 5,
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8, bottom: 8, left: 3, right: 3),
-                  child: Container(
-                    width: 40,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: ytWhite),
-                        borderRadius: BorderRadius.circular(50),
-                        color: ytWhite),
-                    child: Text(
-                      'All',
-                      style: TextStyle(
-                          color: ytHighlightColor,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8, bottom: 8, left: 3, right: 3),
-                  child: Container(
-                    width: 50,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: ytHighlightColor),
-                    child: Text(
-                      'Live',
+                  Text('Explore',
                       style: TextStyle(
                           color: ytWhite,
                           fontSize: 15,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8, bottom: 8, left: 3, right: 3),
-                  child: Container(
-                    width: 80,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: ytHighlightColor),
-                    child: Text(
-                      'Gaming',
-                      style: TextStyle(
-                          color: ytWhite,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8, bottom: 8, left: 3, right: 3),
-                  child: Container(
-                    width: 70,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: ytHighlightColor),
-                    child: Text(
-                      'Flutter',
-                      style: TextStyle(
-                          color: ytWhite,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8, bottom: 8, left: 3, right: 3),
-                  child: Container(
-                    width: 90,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: ytHighlightColor),
-                    child: Text(
-                      'Business',
-                      style: TextStyle(
-                          color: ytWhite,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: 8, bottom: 8, left: 3, right: 15),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'SEND FEEDBACK',
-                      style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w900),
-                    ),
-                  ),
-                ),
-              ],
+                          fontWeight: FontWeight.w400)),
+                ],
+              ),
             ),
           ),
         ),
-        VideosGenerate(),
-      ]),
+        SizedBox(width: 5),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8),
+          child: VerticalDivider(
+            color: ytHighlightColor,
+            thickness: 2,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 40,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                border: Border.all(color: ytWhite),
+                borderRadius: BorderRadius.circular(50),
+                color: ytWhite),
+            child: Text(
+              'All',
+              style: TextStyle(
+                  color: ytHighlightColor,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 50,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: ytHighlightColor),
+            child: Text(
+              'Live',
+              style: TextStyle(
+                  color: ytWhite, fontSize: 15, fontWeight: FontWeight.w400),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 80,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: ytHighlightColor),
+            child: Text(
+              'Gaming',
+              style: TextStyle(
+                  color: ytWhite, fontSize: 15, fontWeight: FontWeight.w400),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 70,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: ytHighlightColor),
+            child: Text(
+              'Flutter',
+              style: TextStyle(
+                  color: ytWhite, fontSize: 15, fontWeight: FontWeight.w400),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 90,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: ytHighlightColor),
+            child: Text(
+              'Business',
+              style: TextStyle(
+                  color: ytWhite, fontSize: 15, fontWeight: FontWeight.w400),
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 15),
+          child: Container(
+            alignment: Alignment.center,
+            child: Text(
+              'SEND FEEDBACK',
+              style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w900),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -368,5 +379,199 @@ class VideosGenerate extends StatelessWidget {
                 )),
               );
             }));
+  }
+}
+
+class ShimmerGenerate extends StatelessWidget {
+  const ShimmerGenerate({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+        child: ListView.builder(
+            physics: BouncingScrollPhysics(),
+            padding: EdgeInsets.only(top: 1),
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return GestureDetector(
+                onTap: () {},
+                child: Container(
+                    child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.width * 0.56,
+                      color: ytHighlightColor,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 10, left: 15, right: 15, bottom: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 35,
+                            height: 35,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(50),
+                                color: ytHighlightColor),
+                          ),
+                          Expanded(
+                            child: Container(
+                              width: 230,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 15),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      height: 15,
+                                      color: ytHighlightColor,
+                                    ),
+                                    SizedBox(
+                                      height: 3,
+                                    ),
+                                    Container(
+                                      width: 220,
+                                      height: 15,
+                                      color: ytHighlightColor,
+                                    ),
+                                    SizedBox(
+                                      height: 3,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Container(
+                                          width: 50,
+                                          height: 12,
+                                          color: ytHighlightColor,
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Container(
+                                          width: 50,
+                                          height: 12,
+                                          color: ytHighlightColor,
+                                        ),
+                                        SizedBox(
+                                          width: 10,
+                                        ),
+                                        Container(
+                                          width: 50,
+                                          height: 12,
+                                          color: ytHighlightColor,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                )),
+              );
+            }));
+  }
+}
+
+class ShimmerRecommendTile extends StatelessWidget {
+  const ShimmerRecommendTile({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      physics: const BouncingScrollPhysics(),
+      scrollDirection: Axis.horizontal,
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 80,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                border: Border.all(color: ytHighlightColor),
+                borderRadius: BorderRadius.circular(50),
+                color: ytHighlightColor),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 80,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                border: Border.all(color: ytHighlightColor),
+                borderRadius: BorderRadius.circular(50),
+                color: ytHighlightColor),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 80,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                border: Border.all(color: ytHighlightColor),
+                borderRadius: BorderRadius.circular(50),
+                color: ytHighlightColor),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 80,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                border: Border.all(color: ytHighlightColor),
+                borderRadius: BorderRadius.circular(50),
+                color: ytHighlightColor),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 80,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                border: Border.all(color: ytHighlightColor),
+                borderRadius: BorderRadius.circular(50),
+                color: ytHighlightColor),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 80,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                border: Border.all(color: ytHighlightColor),
+                borderRadius: BorderRadius.circular(50),
+                color: ytHighlightColor),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 3, right: 3),
+          child: Container(
+            width: 80,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                border: Border.all(color: ytHighlightColor),
+                borderRadius: BorderRadius.circular(50),
+                color: ytHighlightColor),
+          ),
+        ),
+      ],
+    );
   }
 }

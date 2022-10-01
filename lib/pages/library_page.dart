@@ -11,6 +11,19 @@ class LibraryPage extends StatefulWidget {
 }
 
 class _LibraryPageState extends State<LibraryPage> {
+  late bool _isLoading;
+  @override
+  void initState() {
+    // TODO: implement initState
+    _isLoading = true;
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        _isLoading = false;
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,68 +106,7 @@ class _LibraryPageState extends State<LibraryPage> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 15),
                 child: Expanded(
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: videos.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                            padding: const EdgeInsets.only(right: 15),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Container(
-                                  width: 145,
-                                  height: 80,
-                                  decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                              videos[index].thumbnail))),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 1, top: 5),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 125,
-                                        child: Text(
-                                          videos[index].title,
-                                          maxLines: 2,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              color: ytWhite,
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w400),
-                                        ),
-                                      ),
-                                      Container(
-                                        child: Icon(
-                                          Icons.more_vert,
-                                          color: ytWhite,
-                                          size: 20,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 3),
-                                  child: Container(
-                                    width: 135,
-                                    child: Text(
-                                      videos[index].channel_name,
-                                      style: TextStyle(
-                                          color: ytLightText, fontSize: 12),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ));
-                      }),
+                  child: _isLoading ? ShimmerRecentVideo() : RecentVideo(),
                 ),
               ),
             ),
@@ -365,5 +317,130 @@ class _LibraryPageState extends State<LibraryPage> {
             )
           ],
         ));
+  }
+}
+
+class RecentVideo extends StatelessWidget {
+  const RecentVideo({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: videos.length,
+        itemBuilder: (context, index) {
+          return Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 145,
+                    height: 80,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(videos[index].thumbnail))),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 1, top: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          width: 125,
+                          child: Text(
+                            videos[index].title,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                color: ytWhite,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        Container(
+                          child: Icon(
+                            Icons.more_vert,
+                            color: ytWhite,
+                            size: 20,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 3),
+                    child: Container(
+                      width: 135,
+                      child: Text(
+                        videos[index].channel_name,
+                        style: TextStyle(color: ytLightText, fontSize: 12),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  )
+                ],
+              ));
+        });
+  }
+}
+
+class ShimmerRecentVideo extends StatelessWidget {
+  const ShimmerRecentVideo({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return Padding(
+              padding: const EdgeInsets.only(right: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 145,
+                    height: 80,
+                    color: ytHighlightColor,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 1, top: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          width: 130,
+                          height: 10,
+                          color: ytHighlightColor,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 3, left: 1),
+                    child: Container(
+                      width: 120,
+                      height: 10,
+                      color: ytHighlightColor,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 3, left: 1),
+                    child: Container(
+                      width: 80,
+                      height: 10,
+                      color: ytHighlightColor,
+                    ),
+                  )
+                ],
+              ));
+        });
   }
 }
