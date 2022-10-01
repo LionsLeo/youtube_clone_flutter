@@ -31,7 +31,7 @@ flutter run
 
 ### Download the APK
 
-You can find the apk [a relative link](build/app/outputs/flutter-apk/app-release.apk)
+You can find the apk [Here](app-release.apk)
 
 
 
