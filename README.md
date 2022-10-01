@@ -10,14 +10,14 @@ September 2022 UI of Youtube.
 ## How to use the project
 Copy the following codes in your terminal and press enter.
 
-- ```javascript
+```javascript
 git clone https://github.com/LionsLeo/youtube_clone_flutter.git
 ```
 
-- ```javascript
+```javascript
 flutter pub get
 ```
-- ```javascript
+```javascript
 flutter run
 ```
 
