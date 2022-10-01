@@ -344,41 +344,45 @@ class ChannelName extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width - 80,
       height: 100,
-      child: Expanded(
-          child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: videos.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          width: 60,
-                          height: 60,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      videos[index].channel_profile))),
-                        ),
-                        Container(
-                          width: 70,
-                          child: Center(
-                            child: Text(
-                              videos[index].channel_name,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  color: ytWhite,
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 12),
+      child: Column(
+        children: [
+          Expanded(
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: videos.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              width: 60,
+                              height: 60,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(50),
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          videos[index].channel_profile))),
                             ),
-                          ),
-                        )
-                      ]),
-                );
-              })),
+                            Container(
+                              width: 70,
+                              child: Center(
+                                child: Text(
+                                  videos[index].channel_name,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      color: ytWhite,
+                                      fontWeight: FontWeight.w300,
+                                      fontSize: 12),
+                                ),
+                              ),
+                            )
+                          ]),
+                    );
+                  })),
+        ],
+      ),
     );
   }
 }
@@ -393,37 +397,41 @@ class ShimmerChannelName extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width - 80,
       height: 100,
-      child: Expanded(
-          child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: videos.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            width: 60,
-                            height: 60,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: ytHighlightColor),
-                          ),
-                          SizedBox(
-                            height: 2,
-                          ),
-                          Container(
-                            width: 50,
-                            height: 10,
-                            color: ytHighlightColor,
-                          )
-                        ]),
-                  ),
-                );
-              })),
+      child: Column(
+        children: [
+          Expanded(
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: videos.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 8),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                width: 60,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(50),
+                                    color: ytHighlightColor),
+                              ),
+                              SizedBox(
+                                height: 2,
+                              ),
+                              Container(
+                                width: 50,
+                                height: 10,
+                                color: ytHighlightColor,
+                              )
+                            ]),
+                      ),
+                    );
+                  })),
+        ],
+      ),
     );
   }
 }

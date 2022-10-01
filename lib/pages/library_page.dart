@@ -105,8 +105,12 @@ class _LibraryPageState extends State<LibraryPage> {
               height: 157,
               child: Padding(
                 padding: const EdgeInsets.only(left: 15),
-                child: Expanded(
-                  child: _isLoading ? ShimmerRecentVideo() : RecentVideo(),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: _isLoading ? ShimmerRecentVideo() : RecentVideo(),
+                    ),
+                  ],
                 ),
               ),
             ),
