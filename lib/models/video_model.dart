@@ -7,8 +7,10 @@ class VideosModel {
       duration,
       thumbnail;
 
+  String subscribe;
+
   VideosModel(this.title, this.channel_name, this.channel_profile, this.views,
-      this.upload_date, this.duration, this.thumbnail);
+      this.upload_date, this.duration, this.thumbnail, this.subscribe);
 }
 
 List<VideosModel> videos = videoData
@@ -19,7 +21,8 @@ List<VideosModel> videos = videoData
         item['views']!,
         item['upload_date']!,
         item['duration']!,
-        item['thumbnail']!))
+        item['thumbnail']!,
+        item['subscribe']!))
     .toList();
 
 var videoData = [
@@ -32,6 +35,7 @@ var videoData = [
     "upload_date": "6 days ago",
     "duration": "20:02",
     "thumbnail": "assets/thumbnails/1.jpg",
+    "subscribe": "true"
   },
   {
     "title": "Flutter: Internet Connectivity | Stay Connected",
@@ -41,6 +45,7 @@ var videoData = [
     "upload_date": "15 days ago",
     "duration": "05:12",
     "thumbnail": "assets/thumbnails/2.jpg",
+    "subscribe": "false"
   },
   {
     "title": "Avengers Endgame | 'Avengers Assemble' Scenes - IMAX 4K",
@@ -50,6 +55,7 @@ var videoData = [
     "upload_date": "6 days ago",
     "duration": "03:02",
     "thumbnail": "assets/thumbnails/3.jpg",
+    "subscribe": "true"
   },
   {
     "title":
@@ -60,6 +66,7 @@ var videoData = [
     "upload_date": "10 days ago",
     "duration": "22:32",
     "thumbnail": "assets/thumbnails/4.jpg",
+    "subscribe": "true"
   },
   {
     "title": "Hera Pheri All Best Comedy Scenes | Best Bollywood Comedy Scenes",
@@ -69,6 +76,7 @@ var videoData = [
     "upload_date": "5 days ago",
     "duration": "26:00",
     "thumbnail": "assets/thumbnails/5.jpg",
+    "subscribe": "false"
   },
   {
     "title":
@@ -79,6 +87,7 @@ var videoData = [
     "upload_date": "5 years ago",
     "duration": "01:41",
     "thumbnail": "assets/thumbnails/6.jpg",
+    "subscribe": "false"
   },
   {
     "title": "AR Project HCI",
@@ -88,6 +97,7 @@ var videoData = [
     "upload_date": "30 days ago",
     "duration": "16:00",
     "thumbnail": "assets/thumbnails/7.jpg",
+    "subscribe": "true"
   },
   {
     "title": "You’re A Miracle",
@@ -97,5 +107,6 @@ var videoData = [
     "upload_date": "1 year ago",
     "duration": "18:02",
     "thumbnail": "assets/thumbnails/8.jpg",
+    "subscribe": "true"
   },
 ];

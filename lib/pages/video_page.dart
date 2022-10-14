@@ -28,18 +28,22 @@ class _VideoScreenState extends State<VideoScreen> {
             SizedBox(
               height: 35,
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.width * 0.56,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(videos[index].thumbnail),
-                      fit: BoxFit.cover)),
+            Hero(
+              tag: videos[index].thumbnail,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.width * 0.56,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(videos[index].thumbnail),
+                        fit: BoxFit.cover)),
+              ),
             ),
             Expanded(
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
                       height: 12,
@@ -140,30 +144,9 @@ class _VideoScreenState extends State<VideoScreen> {
                           ),
                           Row(
                             children: <Widget>[
-                              Container(
-                                width: 70,
-                                height: 35,
-                                decoration: BoxDecoration(
-                                    color: ytVideoSecondary,
-                                    borderRadius: BorderRadius.circular(50)),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
-                                    Icon(
-                                      Icons.notifications_active,
-                                      color: ytWhite,
-                                      size: 20,
-                                    ),
-                                    SizedBox(
-                                      width: 2,
-                                    ),
-                                    Icon(
-                                      Icons.keyboard_arrow_down_outlined,
-                                      color: ytWhite,
-                                    )
-                                  ],
-                                ),
-                              )
+                              videos[index].subscribe == "true"
+                                  ? SubsTrue()
+                                  : SubsFalse()
                             ],
                           )
                         ],
@@ -471,6 +454,65 @@ class _VideoScreenState extends State<VideoScreen> {
               ),
             ),
           ]),
+    );
+  }
+}
+
+class SubsTrue extends StatelessWidget {
+  const SubsTrue({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 70,
+      height: 32,
+      decoration: BoxDecoration(
+          color: ytVideoSecondary, borderRadius: BorderRadius.circular(50)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(
+            Icons.notifications_active,
+            color: ytWhite,
+            size: 20,
+          ),
+          SizedBox(
+            width: 2,
+          ),
+          Icon(
+            Icons.keyboard_arrow_down_outlined,
+            color: ytWhite,
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class SubsFalse extends StatelessWidget {
+  const SubsFalse({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      height: 32,
+      decoration: BoxDecoration(
+          color: ytWhite, borderRadius: BorderRadius.circular(50)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            'Subscribe',
+            style: TextStyle(
+                color: ytBgColor, fontSize: 15, fontWeight: FontWeight.w500),
+          )
+        ],
+      ),
     );
   }
 }

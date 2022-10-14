@@ -283,11 +283,14 @@ class VideosGenerate extends StatelessWidget {
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.width * 0.56,
                       child: Stack(children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(videos[index].thumbnail),
-                                  fit: BoxFit.cover)),
+                        Hero(
+                          tag: videos[index].thumbnail,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: AssetImage(videos[index].thumbnail),
+                                    fit: BoxFit.cover)),
+                          ),
                         ),
                         Align(
                           alignment: Alignment.bottomRight,
