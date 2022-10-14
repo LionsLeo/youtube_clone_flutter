@@ -6,6 +6,7 @@ import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/pages/video_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -265,7 +266,15 @@ class VideosGenerate extends StatelessWidget {
             itemCount: videos.length,
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => VideoScreen(
+                              index: index,
+                            )),
+                  );
+                },
                 child: Container(
                     child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
