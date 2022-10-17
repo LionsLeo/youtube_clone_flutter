@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/services.dart';
 import 'package:youtube_clone/constants/color_constants.dart';
 import 'package:youtube_clone/models/video_model.dart';
-import 'package:youtube_clone/pages/home_page.dart';
+import 'package:flick_video_player/flick_video_player.dart';
+import 'package:video_player/video_player.dart';
 
 class VideoScreen extends StatefulWidget {
   int index;
@@ -17,6 +17,40 @@ class _VideoScreenState extends State<VideoScreen> {
   int index;
 
   _VideoScreenState({required this.index});
+
+  PageController controller = PageController(initialPage: 0);
+  late FlickManager flickManager;
+  late VideoPlayerController _controller;
+  late bool videoState = false; //true:pause  false:play
+  late bool orientation = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    _controller = VideoPlayerController.asset(videos[index].video_url);
+    _controller.addListener(() {
+      setState(() {});
+    });
+    _controller.setLooping(true);
+    _controller.initialize().then((_) => setState(() {}));
+    _controller.play();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _controller.dispose();
+    super.dispose();
+  }
+
+  Future setLandscape() async {
+    setState(() {
+      orientation = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,6 +71,62 @@ class _VideoScreenState extends State<VideoScreen> {
                     image: DecorationImage(
                         image: AssetImage(videos[index].thumbnail),
                         fit: BoxFit.cover)),
+                child: Stack(
+                  children: [
+                    VideoPlayer(_controller),
+                    Align(
+                      alignment: Alignment.topCenter,
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(top: 8, left: 20, right: 20),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.keyboard_arrow_down_outlined,
+                                      color: ytWhite,
+                                    )
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Icon(
+                                      Icons.cast_connected_sharp,
+                                      color: ytWhite,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Icon(
+                                      Icons.settings,
+                                      color: ytWhite,
+                                    ),
+                                  ],
+                                )
+                              ]),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        height: 6,
+                        child: VideoProgressIndicator(
+                          _controller,
+                          allowScrubbing: true,
+                          colors: VideoProgressColors(
+                              playedColor: ytRed,
+                              bufferedColor: Colors.white.withOpacity(0.5),
+                              backgroundColor: Colors.white.withOpacity(0.2)),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Expanded(

@@ -7,10 +7,18 @@ class VideosModel {
       duration,
       thumbnail;
 
-  String subscribe;
+  String subscribe, video_url;
 
-  VideosModel(this.title, this.channel_name, this.channel_profile, this.views,
-      this.upload_date, this.duration, this.thumbnail, this.subscribe);
+  VideosModel(
+      this.title,
+      this.channel_name,
+      this.channel_profile,
+      this.views,
+      this.upload_date,
+      this.duration,
+      this.thumbnail,
+      this.subscribe,
+      this.video_url);
 }
 
 List<VideosModel> videos = videoData
@@ -22,7 +30,8 @@ List<VideosModel> videos = videoData
         item['upload_date']!,
         item['duration']!,
         item['thumbnail']!,
-        item['subscribe']!))
+        item['subscribe']!,
+        item['video_url']!))
     .toList();
 
 var videoData = [
@@ -35,7 +44,8 @@ var videoData = [
     "upload_date": "6 days ago",
     "duration": "20:02",
     "thumbnail": "assets/thumbnails/1.jpg",
-    "subscribe": "true"
+    "subscribe": "true",
+    "video_url": "assets/videos/1.mp4"
   },
   {
     "title": "Flutter: Internet Connectivity | Stay Connected",
@@ -45,7 +55,8 @@ var videoData = [
     "upload_date": "15 days ago",
     "duration": "05:12",
     "thumbnail": "assets/thumbnails/2.jpg",
-    "subscribe": "false"
+    "subscribe": "false",
+    "video_url": "assets/videos/1.mp4"
   },
   {
     "title": "Avengers Endgame | 'Avengers Assemble' Scenes - IMAX 4K",
@@ -55,7 +66,8 @@ var videoData = [
     "upload_date": "6 days ago",
     "duration": "03:02",
     "thumbnail": "assets/thumbnails/3.jpg",
-    "subscribe": "true"
+    "subscribe": "true",
+    "video_url": "assets/videos/1.mp4"
   },
   {
     "title":
@@ -66,7 +78,8 @@ var videoData = [
     "upload_date": "10 days ago",
     "duration": "22:32",
     "thumbnail": "assets/thumbnails/4.jpg",
-    "subscribe": "true"
+    "subscribe": "true",
+    "video_url": "assets/videos/1.mp4"
   },
   {
     "title": "Hera Pheri All Best Comedy Scenes | Best Bollywood Comedy Scenes",
@@ -76,7 +89,8 @@ var videoData = [
     "upload_date": "5 days ago",
     "duration": "26:00",
     "thumbnail": "assets/thumbnails/5.jpg",
-    "subscribe": "false"
+    "subscribe": "false",
+    "video_url": "assets/videos/1.mp4"
   },
   {
     "title":
@@ -87,7 +101,8 @@ var videoData = [
     "upload_date": "5 years ago",
     "duration": "01:41",
     "thumbnail": "assets/thumbnails/6.jpg",
-    "subscribe": "false"
+    "subscribe": "false",
+    "video_url": "assets/videos/1.mp4"
   },
   {
     "title": "AR Project HCI",
@@ -97,7 +112,8 @@ var videoData = [
     "upload_date": "30 days ago",
     "duration": "16:00",
     "thumbnail": "assets/thumbnails/7.jpg",
-    "subscribe": "true"
+    "subscribe": "true",
+    "video_url": "assets/videos/1.mp4"
   },
   {
     "title": "You’re A Miracle",
@@ -107,6 +123,7 @@ var videoData = [
     "upload_date": "1 year ago",
     "duration": "18:02",
     "thumbnail": "assets/thumbnails/8.jpg",
-    "subscribe": "true"
+    "subscribe": "true",
+    "video_url": "assets/videos/1.mp4"
   },
 ];

@@ -68,6 +68,7 @@ flutter:
     - assets/thumbnails/
     - assets/profile_pics/
     - assets/shorts/
+    - assets/videos/
     - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
