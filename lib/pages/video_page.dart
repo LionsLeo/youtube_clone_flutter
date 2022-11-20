@@ -71,62 +71,6 @@ class _VideoScreenState extends State<VideoScreen> {
                     image: DecorationImage(
                         image: AssetImage(videos[index].thumbnail),
                         fit: BoxFit.cover)),
-                child: Stack(
-                  children: [
-                    VideoPlayer(_controller),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.only(top: 8, left: 20, right: 20),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.keyboard_arrow_down_outlined,
-                                      color: ytWhite,
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  children: <Widget>[
-                                    Icon(
-                                      Icons.cast_connected_sharp,
-                                      color: ytWhite,
-                                    ),
-                                    SizedBox(
-                                      width: 10,
-                                    ),
-                                    Icon(
-                                      Icons.settings,
-                                      color: ytWhite,
-                                    ),
-                                  ],
-                                )
-                              ]),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Container(
-                        height: 6,
-                        child: VideoProgressIndicator(
-                          _controller,
-                          allowScrubbing: true,
-                          colors: VideoProgressColors(
-                              playedColor: ytRed,
-                              bufferedColor: Colors.white.withOpacity(0.5),
-                              backgroundColor: Colors.white.withOpacity(0.2)),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
               ),
             ),
             Expanded(
