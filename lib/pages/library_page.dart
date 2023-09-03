@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:youtube_clone/constants/color_constants.dart';
@@ -34,7 +36,7 @@ class _LibraryPageState extends State<LibraryPage> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(
-                  top: 45, left: 15, right: 15, bottom: 10),
+                  top: 10, left: 15, right: 15, bottom: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -92,231 +94,240 @@ class _LibraryPageState extends State<LibraryPage> {
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsets.only(left: 15, top: 15, bottom: 15),
-              child: Text(
-                'Recent',
-                style: TextStyle(
-                    color: ytWhite, fontSize: 15, fontWeight: FontWeight.w400),
-              ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 157,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15),
+            Expanded(
+              child: SingleChildScrollView(
                 child: Column(
-                  children: [
-                    Expanded(
-                      child: _isLoading ? ShimmerRecentVideo() : RecentVideo(),
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(left: 15, top: 15, bottom: 15),
+                      child: Text(
+                        'Recent',
+                        style: TextStyle(
+                            color: ytWhite,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 157,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15),
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: _isLoading
+                                  ? ShimmerRecentVideo()
+                                  : RecentVideo(),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 2,
+                      color: ytHighlightColor,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 15, top: 20),
+                      child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.history,
+                              color: ytWhite,
+                              size: 28,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              'History',
+                              style: TextStyle(color: ytWhite, fontSize: 15),
+                            ),
+                          ]),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 15, top: 20),
+                      child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.video_library_outlined,
+                              color: ytWhite,
+                              size: 28,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              'Your Videos',
+                              style: TextStyle(color: ytWhite, fontSize: 15),
+                            ),
+                          ]),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 15, top: 20),
+                      child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.download,
+                              color: ytWhite,
+                              size: 28,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  'Downloads',
+                                  style:
+                                      TextStyle(color: ytWhite, fontSize: 15),
+                                ),
+                                Text(
+                                  '0 videos',
+                                  style: TextStyle(
+                                      color: ytLightText, fontSize: 13),
+                                )
+                              ],
+                            ),
+                          ]),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 15, top: 20),
+                      child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.movie_creation_outlined,
+                              color: ytWhite,
+                              size: 28,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              'Your movies',
+                              style: TextStyle(color: ytWhite, fontSize: 15),
+                            ),
+                          ]),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 15, top: 20, bottom: 25),
+                      child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.watch_later_outlined,
+                              color: ytWhite,
+                              size: 28,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              'Watch later',
+                              style: TextStyle(color: ytWhite, fontSize: 15),
+                            ),
+                          ]),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: 2,
+                      color: ytHighlightColor,
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 15, left: 15, right: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            'Playlists',
+                            style: TextStyle(
+                                color: ytWhite,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Container(
+                            child: Row(children: <Widget>[
+                              Text(
+                                'Recently added',
+                                style: TextStyle(
+                                    color: ytWhite,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Icon(
+                                Icons.arrow_downward,
+                                color: ytWhite,
+                              )
+                            ]),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 15, top: 20),
+                      child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.add,
+                              color: Colors.blue,
+                              size: 28,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              'New playlist',
+                              style:
+                                  TextStyle(color: Colors.blue, fontSize: 15),
+                            ),
+                          ]),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 15, top: 20),
+                      child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.thumb_up_alt_outlined,
+                              color: ytWhite,
+                              size: 28,
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  'Liked videos',
+                                  style:
+                                      TextStyle(color: ytWhite, fontSize: 15),
+                                ),
+                                Text(
+                                  '1,021 videos',
+                                  style: TextStyle(
+                                      color: ytLightText, fontSize: 13),
+                                )
+                              ],
+                            ),
+                          ]),
                     ),
                   ],
                 ),
-              ),
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 2,
-              color: ytHighlightColor,
-            ),
-            SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(left: 15, top: 20),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.history,
-                            color: ytWhite,
-                            size: 28,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'History',
-                            style: TextStyle(color: ytWhite, fontSize: 15),
-                          ),
-                        ]),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 15, top: 20),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.video_library_outlined,
-                            color: ytWhite,
-                            size: 28,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Your Videos',
-                            style: TextStyle(color: ytWhite, fontSize: 15),
-                          ),
-                        ]),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 15, top: 20),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.download,
-                            color: ytWhite,
-                            size: 28,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'Downloads',
-                                style: TextStyle(color: ytWhite, fontSize: 15),
-                              ),
-                              Text(
-                                '0 videos',
-                                style:
-                                    TextStyle(color: ytLightText, fontSize: 13),
-                              )
-                            ],
-                          ),
-                        ]),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 15, top: 20),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.movie_creation_outlined,
-                            color: ytWhite,
-                            size: 28,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Your movies',
-                            style: TextStyle(color: ytWhite, fontSize: 15),
-                          ),
-                        ]),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 15, top: 20, bottom: 25),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.watch_later_outlined,
-                            color: ytWhite,
-                            size: 28,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'Watch later',
-                            style: TextStyle(color: ytWhite, fontSize: 15),
-                          ),
-                        ]),
-                  ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 2,
-                    color: ytHighlightColor,
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 15, left: 15, right: 15),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Playlists',
-                          style: TextStyle(
-                              color: ytWhite,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        Container(
-                          child: Row(children: <Widget>[
-                            Text(
-                              'Recently added',
-                              style: TextStyle(
-                                  color: ytWhite,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Icon(
-                              Icons.arrow_downward,
-                              color: ytWhite,
-                            )
-                          ]),
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 15, top: 20),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.add,
-                            color: Colors.blue,
-                            size: 28,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text(
-                            'New playlist',
-                            style: TextStyle(color: Colors.blue, fontSize: 15),
-                          ),
-                        ]),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 15, top: 20),
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.thumb_up_alt_outlined,
-                            color: ytWhite,
-                            size: 28,
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                'Liked videos',
-                                style: TextStyle(color: ytWhite, fontSize: 15),
-                              ),
-                              Text(
-                                '1,021 videos',
-                                style:
-                                    TextStyle(color: ytLightText, fontSize: 13),
-                              )
-                            ],
-                          ),
-                        ]),
-                  ),
-                ],
               ),
             )
           ],

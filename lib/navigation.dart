@@ -35,7 +35,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_currentindex],
+      body: Container(
+          color: ytBgColor, child: SafeArea(child: pages[_currentindex])),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.white,

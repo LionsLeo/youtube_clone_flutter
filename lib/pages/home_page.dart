@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
           Column(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
         Padding(
           padding:
-              const EdgeInsets.only(top: 45, left: 15, right: 15, bottom: 10),
+              const EdgeInsets.only(top: 10, left: 15, right: 15, bottom: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
