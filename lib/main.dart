@@ -4,13 +4,13 @@ import 'package:youtube_clone/pages/splash_screen.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: Colors.blue, // navigation bar color
-    statusBarColor: Colors.pink, // status bar color
-    statusBarBrightness: Brightness.dark, //status bar brigtness
-    statusBarIconBrightness: Brightness.dark, //status barIcon Brightness
-    systemNavigationBarDividerColor:
-        Colors.greenAccent, //Navigation bar divider color
-    systemNavigationBarIconBrightness: Brightness.light, //navigation bar icon
+    systemNavigationBarColor: Color(0xFF0F0F0F), // navigation bar color
+    statusBarColor: Color(0xFF0F0F0F), // status bar color
+    // statusBarBrightness: Brightness.values(), //status bar brigtness
+    // statusBarIconBrightness: Brightness.dark, //status barIcon Brightness
+    // systemNavigationBarDividerColor:
+    // Colors.greenAccent, //Navigation bar divider color
+    // systemNavigationBarIconBrightness: Brightness.light, //navigation bar icon
   ));
   runApp(const MyApp());
 }
