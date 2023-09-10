@@ -1,7 +1,7 @@
 import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import 'package:youtube_clone_flutter/constants/color_constants.dart';
+import 'package:youtube_clone/constants/color_constants.dart';
 import '../models/shorts_model.dart';
 
 class ShortsPage extends StatefulWidget {

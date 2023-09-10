@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:youtube_clone_flutter/constants/color_constants.dart';
-import 'package:youtube_clone_flutter/navigation.dart';
+// import 'package:youtube_clone/constants/color_constants.dart';
+// import 'package:youtube_clone/navigation.dart';
+import '../constants/color_constants.dart';
+import '../navigation.dart';
 
 class SplashScreenNew extends StatefulWidget {
   const SplashScreenNew({super.key});

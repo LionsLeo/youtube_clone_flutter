@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:youtube_clone_flutter/constants/color_constants.dart';
-import 'package:youtube_clone_flutter/pages/home_page.dart';
-import 'package:youtube_clone_flutter/pages/library_page.dart';
-import 'package:youtube_clone_flutter/pages/shorts_page.dart';
-import 'package:youtube_clone_flutter/pages/subs_page.dart';
+import 'package:youtube_clone/constants/color_constants.dart';
+import 'package:youtube_clone/pages/home_page.dart';
+import 'package:youtube_clone/pages/library_page.dart';
+import 'package:youtube_clone/pages/shorts_page.dart';
+import 'package:youtube_clone/pages/subs_page.dart';
 import 'package:line_icons/line_icons.dart';
 
 class BottomNavigation extends StatefulWidget {
