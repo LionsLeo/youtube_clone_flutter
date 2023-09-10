@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:youtube_clone/constants/color_constants.dart';
-import 'package:youtube_clone/models/video_model.dart';
-import 'package:youtube_clone/pages/home_page.dart';
+import 'package:youtube_clone_flutter/constants/color_constants.dart';
+import 'package:youtube_clone_flutter/models/video_model.dart';
+import 'package:youtube_clone_flutter/pages/home_page.dart';
 
 class SubsPage extends StatefulWidget {
   const SubsPage({super.key});

@@ -1,9 +1,9 @@
-import 'package:youtube_clone/constants/color_constants.dart';
-import 'package:youtube_clone/models/video_model.dart';
+import 'package:youtube_clone_flutter/constants/color_constants.dart';
+import 'package:youtube_clone_flutter/models/video_model.dart';
 import 'package:line_icons/line_icons.dart';
 
 import 'package:flutter/material.dart';
-import 'package:youtube_clone/pages/video_page.dart';
+import 'package:youtube_clone_flutter/pages/video_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

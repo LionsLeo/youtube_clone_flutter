@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:youtube_clone/constants/color_constants.dart';
-import 'package:youtube_clone/models/video_model.dart';
+import 'package:youtube_clone_flutter/constants/color_constants.dart';
+import 'package:youtube_clone_flutter/models/video_model.dart';
 import 'package:flick_video_player/flick_video_player.dart';
 import 'package:video_player/video_player.dart';
 
